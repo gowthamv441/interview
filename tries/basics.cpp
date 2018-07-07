@@ -50,10 +50,10 @@ int main()
 {
   Node * root=getnode();
 
-  root=insert(root,"hello");
-  root=insert(root,"hai");
+  root=insert(root,"hellohai");
+  root=insert(root,"helloboys");
 
-  if(search(root,"hai"))
+  if(search(root,"hello"))
     cout<<"yes"<<endl;
   else
     cout<<"no"<<endl;
