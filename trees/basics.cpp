@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 typedef struct node
 {
@@ -33,4 +33,5 @@ main()
   root->right->left=newnode(6);
   root->right->right=newnode(7);
   print(root);
+  cout<<endl;
 }
