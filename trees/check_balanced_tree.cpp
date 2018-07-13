@@ -33,6 +33,25 @@ int check_balanced(Node * root,bool &flag)
     flag=false;
   return max(ls,rs)+1;
 }
+
+/* another method*/
+int minDepth(Node * root)
+{
+  if(root==NULL)
+    return 0;
+  return 1+min(minDepth(root->left),minDepth(root->right));
+}
+int maxDepth(Node * root)
+{
+  if(root==NULL)
+    return 0;
+  return 1+max(maxDepth(root->left),maxDepth(root->right));
+}
+bool isbalanced(Node * root)
+{
+  return maxDepth(root)-minDepth(root)<=1;
+}
+
 main()
 {
   Node * root=newnode(1);
@@ -50,4 +69,5 @@ main()
     cout<<"yes"<<endl;
   else
     cout<<"No"<<endl;
+  isbalanced(root);
 }
