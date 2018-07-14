@@ -5,7 +5,7 @@ int precedence(char op)
 {
   if(op=='+'||op=='-')
     return 1;
-  else if(op=='*'||op=='/')
+  if(op=='*'||op=='/')
     return 2;
   return 0;
 }
@@ -20,18 +20,13 @@ int apply_operator(int a,int b,char op)
     case '/': return a/b;
   }
 }
-bool isdigit(char a)
-{
-  return a>='0'&&a<='9';
-}
 int evaluate(string s)
 {
   stack<int> values;
   stack<char> ops;
-
   for(int i=0;i<s.length();i++)
   {
-    cout<<s[i]<<" ";
+  //  cout<<s[i]<<" ";
     if(s[i]==' ')
       continue;
     else if(s[i]=='(')
@@ -58,7 +53,7 @@ int evaluate(string s)
         ops.pop();
         values.push(apply_operator(val1,val2,op));
       }
-      ops.top();
+      ops.pop();
     }
     else
     {
@@ -71,6 +66,7 @@ int evaluate(string s)
         char op=ops.top();
         ops.pop();
         values.push(apply_operator(val1,val2,op));
+
       }
       ops.push(s[i]);
     }
@@ -89,13 +85,7 @@ int evaluate(string s)
 }
 main()
 {
-  int test_case;
-  cin>>test_case;
-  for(int t=1;t<=test_case;t++)
-  {
-    string s;
-    cin>>s;
-    cout<<"#"<<t<<" "<<evaluate(s)<<endl;
-  }
+  cout<<evaluate("2 * 6")<<endl;
+//  cout<<evaluate("2 * 6")<<endl;
 
 }
