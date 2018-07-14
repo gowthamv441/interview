@@ -24,13 +24,18 @@ int evaluate(string s)
 {
   stack<int> values;
   stack<char> ops;
-  for(int i=0;i<s.length();i++)
+  int i;
+  for(i=0;i<s.length();i++)
   {
-  //  cout<<s[i]<<" ";
+    /* if space continue*/
     if(s[i]==' ')
       continue;
+
+    /* if open braces push it to stack*/
     else if(s[i]=='(')
       ops.push(s[i]);
+
+    /* if curr char is digit make it as a integer and push to stack*/
     else if(isdigit(s[i]))
     {
       int val=0;
@@ -41,30 +46,42 @@ int evaluate(string s)
       }
       values.push(val);
     }
-    else if(s[i]=')')
+
+    /*if curr char is close braces pop values and operator and perform
+      operation*/
+    else if(s[i]==')')
     {
       while(!ops.empty()&ops.top()!='(')
       {
         int val2=values.top();
         values.pop();
+
         int val1=values.top();
         values.pop();
+
         char op=ops.top();
         ops.pop();
+
         values.push(apply_operator(val1,val2,op));
       }
       ops.pop();
     }
+
+    /* if it is a operator pop and perform operation
+     based on precedence*/
     else
     {
       while(!ops.empty()&&precedence(s[i])<=precedence(ops.top()))
       {
         int val2=values.top();
         values.pop();
+
         int val1=values.top();
         values.pop();
+
         char op=ops.top();
         ops.pop();
+
         values.push(apply_operator(val1,val2,op));
 
       }
@@ -75,10 +92,13 @@ int evaluate(string s)
   {
     int val2=values.top();
     values.pop();
+
     int val1=values.top();
     values.pop();
+
     char op=ops.top();
     ops.pop();
+
     values.push(apply_operator(val1,val2,op));
   }
   return values.top();
@@ -86,6 +106,4 @@ int evaluate(string s)
 main()
 {
   cout<<evaluate("2 * 6")<<endl;
-//  cout<<evaluate("2 * 6")<<endl;
-
 }
