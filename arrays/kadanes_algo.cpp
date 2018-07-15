@@ -12,10 +12,10 @@ main()
     for(int i=0;i<n;i++)
       cin>>arr[i];
 
-    int max_so_for=arr[0];
-    int curr_max=arr[0];
+    int max_so_for=INT_MIN;
+    int curr_max=0;
     int s=0,start,end;
-    for(int i=1;i<n;i++)
+    for(int i=0;i<n;i++)
     {
       curr_max+=arr[i];
       if(max_so_for<curr_max)
