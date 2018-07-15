@@ -6,6 +6,7 @@ int maximum_sum(int arr[],int n)
     int curr_max=0;
     int max_so_far=INT_MIN;
     int start,end,s=0;
+
     for(int i=0;i<n;i++)
     {
         curr_max+=arr[i];
@@ -21,6 +22,7 @@ int maximum_sum(int arr[],int n)
             s=i+1;
         }
     }
+
     cout<<start<<" "<<end<<endl;
     return max_so_far;
 }
