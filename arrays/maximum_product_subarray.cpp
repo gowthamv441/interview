@@ -1,42 +1,34 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-int findMaxProduct(int arr[], int n)
+int maximum(int a,int b,int c)
 {
-	int i;
-	int ans = INT_MIN;
-	int maxval = 1;
-	int minval = 1;
-	int prevMax;
+	return max(a,max(b,c));
+}
 
-	for (i = 0; i < n; i++) {
-		if (arr[i] > 0) {
-			maxval = maxval * arr[i];
-			minval = min(1, minval * arr[i]);
-		}
-		else if (arr[i] == 0) {
-			minval = 1;
-			maxval = 0;
-		}
-		else if (arr[i] < 0) {
-			prevMax = maxval;
-			maxval = minval * arr[i];
-			minval = prevMax * arr[i];
-		}
-
-		ans = max(ans, maxval);
-		if (maxval <= 0) {
-			maxval = 1;
-		}
+int minimum(int a,int b,int c)
+{
+	return min(a,min(b,c));
+}
+int findMaxProduct(int a[], int n)
+{
+	int prev_max=a[0];
+	int prev_min=a[0];
+	int ans=a[0];
+	for (int i = 1; i < n; i++)
+	{
+		int curr_max=maximum(prev_max*a[i],prev_min*a[i],a[i]);
+		int curr_min=minimum(prev_max*a[i],prev_min*a[i],a[i]);
+		ans=max(ans,curr_max);
+		prev_max=curr_max;
+		prev_min=curr_min;
 	}
-
 	return ans;
 }
 
 int main()
 {
-	int arr[] = { -1, -4, 0, -2 };
+	int arr[] = { 0, -4, 0, -2 };
 	int n = sizeof(arr) / sizeof(arr[0]);
 	cout << findMaxProduct(arr, n);
 	return 0;
