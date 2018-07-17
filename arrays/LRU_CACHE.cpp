@@ -47,7 +47,7 @@ class LRU_cache
 };
 int main()
 {
-  int cache_size;
+  int cache_size; /* which is also page frame*/
   cin>>cache_size;
   LRU_cache lru(cache_size);
   int pages;
