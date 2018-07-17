@@ -20,6 +20,9 @@ main()
 {
   string s;
   cin>>s;
-  if(s[0]!='0')
+  while(s!="0")
+  {
     cout<<count_encoding(s)<<endl;
+    cin>>s;
+  }
 }
