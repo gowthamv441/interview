@@ -1,0 +1,29 @@
+1)How datas stored in database
+
+2)Redundancy of data
+
+3)use of normalisation
+
+4)meta data
+
+5)database administrator
+
+6)DBMS Architecture
+
+7)ODBC(Open Database Connectivity)
+
+8)Types of Database Model (Mainly ER)
+
+9)Generalization
+
+10)Aggregation
+
+11)Relation Schema
+
+12)Relational Algebra
+
+13)Keys in Database
+
+14)Data Redundancy and Issues caused by it(Insertion, Updation, Deletion anamoly)
+
+15)Dependancy and Partial Dependancy and Transitive Dependancy
